@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2mm;
+            margin-bottom: 10mm;
+            max-width: 100cm;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body.theme2 {
+            background-color: #0F1F2F; 
+            color: #E9EBF8;
+            background-image: linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333 100%);
+            background-size: 15px 15px; 
+        }
+        h1 {
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            border: 1mm solid #0F1F2F;
+        }
+
+        a {
+            color: lavender;
+            text-decoration: underline; /* Optional: Removes underline from links */
+        }
+
+        .about-me {
+            border: 1mm solid white;
+            padding: 2mm;
+            margin-bottom: 10mm;
+            max-width: 25cm;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+
+        table {
+        max-width: 70%; 
+        width: 60%; 
+        border-collapse: collapse;
+        background-color: black;
+        margin: 0 auto;
+        table-layout: fixed; 
+
+        }
+        th, td {
+        border: 1px solid white;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word; 
+        line-height: 1.5;
+        font-size: 20px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            text-align: center; /* Align text in table header cells */
+            word-wrap: break-word;
+        }
+        td ul {
+            margin-top: 5px; /* You can adjust this value */
+            margin-bottom: 0; /* Removing bottom margin */
+        }
+        .content {
+            opacity: 1;
+            transition: opacity 0.7s ease-in-out; 
+            text-align: left;
+        }
+        .content.hide {
+            opacity: 0;
+        }
+    </style>
+        <script>
+            // JavaScript to handle the transition
+            document.addEventListener('DOMContentLoaded', function() {
+                const links = document.querySelectorAll('a[target="_self"]');
+                links.forEach(link => {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const href = this.getAttribute('href');
+                        const content = document.querySelector('.content');
+    
+                        // Hide content before changing the page
+                        content.classList.add('hide');
+    
+                        setTimeout(function() {
+                            // Change the page after the transition effect
+                            window.location.href = href;
+                        }, 500); // Adjust timing to match the transition duration
+                    });
+                });
+            });
+        </script>
+</head>
+
+    <body class="theme2">
+    <div class="content">
+        <h1>My Personal Portfolio</h1>
+        <img src="images/Angelo.jpg" width="10%" height="10%" /> <br>
+
+        <div class="about-me">
+            <h2>About Me?</h2>
+            <p>Greetings, I am Angelo! A Computer Engineering student at Pamantasan ng Lungsod ng Maynila.<br> 
+                My enthusiasm lies on diving deep into the realms of AI and Machine Learning.<br> 
+                I am driven by a curiosity to resolve the complexity of these technologies and learn them to innovate and create impactful solutions.</p>
+        </div>
+
+        <table>
+            <tr>
+                <ul>
+                <th>Experience</th>
+                <th>Professional Accounts Links</th>
+                <th>Information</th>
+                </ul>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><h4></h4><a href="School Experience.html" target="_self">School Experience</a></li>
+                        <br>
+                        <br>
+                        <li><h4></h4><a href="Organizations and Certificates.html" target="_self">Organization and Certificates</a></li>
+                        <br>
+                        <br>
+                        <li><h4></h4><a href="Working Experience.html" target="_self">Working Experience</a></li>
+                        <br>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin-top: 10px;">
+                        <br>
+                        <li><p><strong>GITHUB ACCOUNT</strong></p><a href="https://github.com/angelojoe20" target="_blank">Github: angelojoe20</a></li>
+                        <br>
+                        <li><p><strong>LINKEDIN ACCOUNT</strong></p><a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank">Linkedin: angelojoedelossantos20</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <br><br><br><br>
+                        <li><a href="Personal Data.html" target="_self">Personal Information</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
