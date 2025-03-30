@@ -1,12 +1,11 @@
 /*
-  Pure custom CSS — no Tailwind import.
-  This should give you a Hugo Profile–like layout:
-  - Sticky nav
-  - Hero section
-  - Semi-transparent content container
+  Updated color scheme (no pink):
+  - Overall background: #FFFAEC
+  - Header/Hero: #F5ECD5
+  - Text/lines/accents: #3D3D3D
 */
 
-/* Reset some default browser styles */
+/* Reset default browser styles */
 * {
   margin: 0;
   padding: 0;
@@ -14,13 +13,13 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1F2937, #4F46E5); 
-  color: #fff; /* White text for contrast against dark background */
+  background-color: #FFFAEC;  /* Light background for the page */
+  color: #3D3D3D;             /* Dark text for contrast */
   min-height: 100vh;
   line-height: 1.6;
 }
@@ -30,23 +29,24 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #F5ECD5;  /* Slightly different color for the header */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #3D3D3D; /* Dark border line */
 }
 
 .nav-logo a {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #F472B6; /* Soft pink accent color */
+  color: #3D3D3D;  /* Dark text for readability */
   transition: color 0.3s;
 }
 
 .nav-logo a:hover {
-  color: #fff;
+  color: #3D3D3D; /* Same dark color on hover (no pink) */
 }
 
 /* Navigation Links */
@@ -61,14 +61,14 @@ body {
 }
 
 .nav-links a {
-  color: #fff;
+  color: #3D3D3D;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #F472B6; /* Hover to pink */
+  color: #000; /* Slightly darker on hover, or use #3D3D3D to keep it consistent */
 }
 
 /* Hero Section */
@@ -76,29 +76,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem;
-  background: rgba(0, 0, 0, 0.3); /* Slight overlay on top of gradient */
+  padding: 3rem 1rem;
+  background-color: #F5ECD5; /* Matches the navbar for a unified header area */
   text-align: center;
+  border-bottom: 1px solid #3D3D3D; /* Subtle divider under hero */
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #F472B6; /* Pink accent for name/title */
+  color: #3D3D3D; /* Keep text dark for contrast against light background */
 }
 
 .hero-content p {
   font-size: 1.25rem;
-  color: #fff;
+  color: #3D3D3D;
 }
 
 /* Main Content Container */
 .content-container {
   max-width: 900px;
   margin: 2rem auto;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay */
+  background-color: #fff; /* White container for clarity */
   padding: 2rem;
   border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Section Titles */
@@ -106,7 +108,7 @@ section h2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.25rem;
-  border-bottom: 2px solid #F472B6;
+  border-bottom: 2px solid #3D3D3D; /* Dark underline instead of pink */
 }
 
 /* Italic class for job titles, etc. */
@@ -127,13 +129,13 @@ section li {
 
 /* Links in Content */
 section a {
-  color: #F472B6;
+  color: #3D3D3D; /* Same dark color for links */
   text-decoration: none;
   transition: color 0.3s;
 }
 
 section a:hover {
-  color: #fff;
+  color: #000; /* Slightly darker on hover */
   text-decoration: underline;
 }
 
@@ -141,9 +143,9 @@ section a:hover {
 footer {
   text-align: center;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #F5ECD5; /* Matches the header for consistency */
+  color: #3D3D3D;
   font-size: 0.875rem;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid #3D3D3D;
 }
