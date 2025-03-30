@@ -1,0 +1,149 @@
+/*
+  Pure custom CSS — no Tailwind import.
+  This should give you a Hugo Profile–like layout:
+  - Sticky nav
+  - Hero section
+  - Semi-transparent content container
+*/
+
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1F2937, #4F46E5); 
+  color: #fff; /* White text for contrast against dark background */
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Sticky Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F472B6; /* Soft pink accent color */
+  transition: color 0.3s;
+}
+
+.nav-logo a:hover {
+  color: #fff;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #F472B6; /* Hover to pink */
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: rgba(0, 0, 0, 0.3); /* Slight overlay on top of gradient */
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #F472B6; /* Pink accent for name/title */
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+/* Main Content Container */
+.content-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* Section Titles */
+section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid #F472B6;
+}
+
+/* Italic class for job titles, etc. */
+.italic {
+  font-style: italic;
+}
+
+/* Lists in Sections */
+section ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+section li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links in Content */
+section a {
+  color: #F472B6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+section a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
