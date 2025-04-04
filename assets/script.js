@@ -85,30 +85,72 @@ document.addEventListener("DOMContentLoaded", function() {
     "retina_detect": true
   });
 
-  // Mouse Movement-Based Parallax for the background shape
-  document.addEventListener('mousemove', function(e) {
-    const x = (e.clientX / window.innerWidth - 0.5) * 10;
-    const y = (e.clientY / window.innerHeight - 0.5) * 10;
-    const bgShape = document.querySelector('.hero-bg-shape');
-    if (bgShape) {
-      bgShape.style.transform = `translate(${x}px, ${y}px)`;
+  // Intersection Observer for showing/hiding the navbar
+  const nav = document.querySelector(".navbar");
+  const heroSection = document.querySelector(".hero");
+  const observerOptions = {
+    root: null,      // viewport
+    threshold: 0.5   // when 50% of the hero is visible
+  };
+  const observer = new IntersectionObserver((entries) => {
+    const heroEntry = entries[0];
+    if (heroEntry.isIntersecting) {
+      nav.classList.add("hidden-nav");
+    } else {
+      nav.classList.remove("hidden-nav");
     }
-  });
+  }, observerOptions);
+  observer.observe(heroSection);
 
-  // Tab Switching for the Experience Section
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
-
+  // Tab Switching for the Experience Section (generic tab switching)
+  const tabs = document.querySelectorAll('.tab:not(.org-tabs .tab)');
+  const contents = document.querySelectorAll('.tab-content:not(.org-tabs .tab-content)');
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
-      // Remove 'active' class from all tabs and content panels
       tabs.forEach(t => t.classList.remove('active'));
       contents.forEach(c => c.classList.remove('active'));
-
-      // Add 'active' class to clicked tab and its corresponding content
       tab.classList.add('active');
       const targetId = tab.getAttribute('data-target');
       document.getElementById(targetId).classList.add('active');
     });
+  });
+
+  // Tab Switching for the Organizations Section
+  const orgTabs = document.querySelectorAll('.org-tabs .tab');
+  const orgContents = document.querySelectorAll('.org-tabs .tab-content');
+  orgTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      orgTabs.forEach(t => t.classList.remove('active'));
+      orgContents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      const targetId = tab.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+  // Dynamic Duration Calculation Function
+  function calculateDuration(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = endDate === "Present" ? new Date() : new Date(endDate);
+    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    const years = Math.floor(months / 12);
+    months = months % 12;
+    let result = "";
+    if (years > 0) result += years + " yr" + (years > 1 ? "s" : "");
+    if (months > 0) result += (years > 0 ? " " : "") + months + " mos";
+    return result || "Less than 1 mo";
+  }
+
+  // Update durations for elements with the class "calc-duration"
+  document.querySelectorAll('.calc-duration').forEach(span => {
+    const start = span.getAttribute('data-start');
+    const end = span.getAttribute('data-end');
+    span.textContent = "· " + calculateDuration(start, end);
+  });
+
+  // Update overall durations for elements with "calc-overall-duration"
+  document.querySelectorAll('.calc-overall-duration').forEach(span => {
+    const start = span.getAttribute('data-start');
+    span.textContent = calculateDuration(start, "Present");
   });
 });
