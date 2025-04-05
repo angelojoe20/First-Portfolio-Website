@@ -115,19 +115,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Tab Switching for the Organizations Section
-  const orgTabs = document.querySelectorAll('.org-tabs .tab');
-  const orgContents = document.querySelectorAll('.org-tabs .tab-content');
-  orgTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      orgTabs.forEach(t => t.classList.remove('active'));
-      orgContents.forEach(c => c.classList.remove('active'));
-      tab.classList.add('active');
-      const targetId = tab.getAttribute('data-target');
-      document.getElementById(targetId).classList.add('active');
-    });
-  });
-
   // Dynamic Duration Calculation Function
   function calculateDuration(startDate, endDate) {
     const start = new Date(startDate);
