@@ -1,410 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Angelo Joe Delos Santos - Resume</title>
-
-  <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/style.css">
-
-  <!-- Font Awesome CDN -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-yZf6BrpPip3Lw1U+sxrGQnNBeo3t+I8ecOxc6Kl72pXpg65PkAB8p5T9zUAcynWNyCZjnDk9r2aVDDaB+6hguw=="
-    crossorigin="anonymous" 
-    referrerpolicy="no-referrer"
-  />
-
-  <!-- AOS CSS for scroll-triggered animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-</head>
-<body>
-  <!-- Navigation Bar (AOS removed) -->
-  <nav class="navbar" role="navigation">
-    <div class="nav-logo">
-      <a href="#home">MyProfile</a>
-    </div>  
-    <ul class="nav-links">
-      <li><a href="#about-me">About Me</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#leadership">Organizations</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section (Home) -->
-  <header class="hero" id="home" data-aos="fade-up">
-    <!-- Particles Container -->
-    <div id="particles-js"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Angelo Joe Delos Santos - Resume</title>
     
-    <!-- Decorative background shape -->
-    <div class="hero-bg-shape"></div>
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="Angelo Joe Delos Santos - Computer Engineering student specialized in Cloud and Data Engineering. Explore my projects, experience, and skills."/>
+    <meta property="og:title" content="Angelo Joe Delos Santos - Resume">
+    <meta property="og:description" content="Explore my projects, experience, certifications, and skills.">
+    <meta property="og:image" content="images/og-image.jpg"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="https://angelojoe-website.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
     
-    <div class="hero-content-container">
-      <!-- Left Column: Text & CTA -->
-      <div class="hero-left">
-        <p class="hero-greeting">Hi, my name is</p>
-        <h1 class="hero-title">Angelo Joe Delos Santos.</h1>
-        <h2 class="hero-subtitle"><span id="typed-text"></span></h2>
-        
-        <!-- Hero Buttons + Social Icons -->
-        <div class="hero-buttons">
-          <a href="pdfs/Angelo_CV.pdf" class="btn-cta" target="_blank">Resume</a>
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank" aria-label="LinkedIn" class="btn-social">
-              <img src="images/linkedin.png" alt="LinkedIn Icon" />
-            </a>
-            <a href="https://github.com/angelojoe20" target="_blank" aria-label="GitHub" class="btn-social">
-              <img src="images/github.png" alt="GitHub Icon" />
-            </a>
-            <a href="https://www.instagram.com/https.geloo" target="_blank" aria-label="Instagram" class="btn-social">
-              <img src="images/instagram.png" alt="Instagram Icon" />
-            </a>
-          </div>
-        </div>
-      </div>
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+    
+    <!-- Font Awesome CDN -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-yZf6BrpPip3Lw1U+sxrGQnNBeo3t+I8ecOxc6Kl72pXpg65PkAB8p5T9zUAcynWNyCZjnDk9r2aVDDaB+6hguw=="
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+    />
+    
+    <!-- AOS CSS for scroll-triggered animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Bar -->
+      <nav class="navbar" role="navigation">
+        <div class="nav-logo">
+          <a href="#home">MyProfile</a>
+        </div>  
+        <ul class="nav-links">
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#leadership">Organizations</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
       
-      <!-- Right Column: Avatar/Image -->
-      <div class="hero-right">
-        <img src="images/shs-graduatepic.jpg" alt="Angelo Joe Delos Santos Avatar" class="hero-avatar" />
-      </div>
-    </div>
-    
-    <!-- Animated Scroll Indicator -->
-    <div class="scroll-indicator">
-      <a href="#about-me" aria-label="Scroll to About Me">
-        <img src="images/down.png" alt="Scroll down" class="arrow-down" />
-      </a>
-    </div>
-  </header>
-
-  <!-- About Me Section -->
-  <section class="about-me-section" id="about-me" data-aos="fade-up">
-    <div class="about-me-bg"></div>
-    
-    <div class="about-me-container" data-aos="fade-right" data-aos-delay="100">
-      <div class="about-me-content">
-        <h2 class="about-me-title">About Me</h2>
-        <p class="about-me-description">
-          I'm a Computer Engineering student with hands-on experience in AWS, Google Cloud, 
-          and Web Development. I specialize in cloud infrastructure, automation, 
-          and system optimization, and I am proficient in Python, Git, Docker, PostgreSQL, 
-          Flutter, and more. My passion is solving complex problems and continuously learning 
-          to advance in cloud technologies and machine learning.
-        </p>
-        <p class="about-me-description">
-          Here are some of the technologies I work with:
-        </p>
-        <a href="https://www.facebook.com/eyydyyeyyy" class="btn-contact" data-aos="fade-up" data-aos-delay="300">
-          Contact Me
-        </a>
-      </div>
+      <!-- Hero Section -->
+      <section class="hero" id="home" data-aos="fade-up">
+        <!-- Particles Container (decorative; hidden from assistive technologies) -->
+        <div id="particles-js" aria-hidden="true"></div>
+        <!-- Decorative background shape -->
+        <div class="hero-bg-shape" aria-hidden="true"></div>
+        <div class="hero-content-container">
+          <!-- Left Column: Text & CTA -->
+          <div class="hero-left">
+            <p class="hero-greeting">Hi, my name is</p>
+            <h1 class="hero-title">Angelo Joe Delos Santos.</h1>
+            <h2 class="hero-subtitle"><span id="typed-text"></span></h2>
+            <!-- Hero Buttons + Social Icons -->
+            <div class="hero-buttons">
+              <a href="pdfs/Angelo_CV.pdf" class="btn-cta" target="_blank">Resume</a>
+              <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank" aria-label="LinkedIn" class="btn-social">
+                  <img src="images/linkedin.png" alt="LinkedIn Icon" />
+                </a>
+                <a href="https://github.com/angelojoe20" target="_blank" aria-label="GitHub" class="btn-social">
+                  <img src="images/github.png" alt="GitHub Icon" />
+                </a>
+                <a href="https://www.instagram.com/https.geloo_/" target="_blank" aria-label="Instagram" class="btn-social">
+                  <img src="images/instagram.png" alt="Instagram Icon" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Right Column: Avatar/Image -->
+          <div class="hero-right">
+            <img src="images/shs-graduatepic.jpg" alt="Angelo Joe Delos Santos Avatar" class="hero-avatar" loading="lazy"/>
+          </div>
+        </div>
+        <!-- Animated Scroll Indicator -->
+        <div class="scroll-indicator">
+          <a href="#about-me" aria-label="Scroll to About Me">
+            <img src="images/down.png" alt="Scroll down" class="arrow-down" />
+          </a>
+        </div>
+      </section>
+    </header>
+    <main>
+      <!-- About Me Section -->
+      <section class="about-me-section" id="about-me" data-aos="fade-up">
+        <div class="about-me-bg" aria-hidden="true"></div>
+        <div class="about-me-container" data-aos="fade-right" data-aos-delay="100">
+          <div class="about-me-content">
+            <h2 class="about-me-title">About Me</h2>
+            <p class="about-me-description">
+              I'm a Computer Engineering student with hands-on experience in AWS, Google Cloud, and Web Development. I specialize in cloud infrastructure, automation, and system optimization, and I am proficient in Python, Git, Docker, PostgreSQL, Flutter, and more. My passion is solving complex problems and continuously learning to advance in cloud technologies and machine learning.
+            </p>
+            <p class="about-me-description">
+              Here are some of the technologies I work with:
+            </p>
+            <a href="https://www.facebook.com/eyydyyeyyy" class="btn-contact" data-aos="fade-up" data-aos-delay="300">Contact Me</a>
+          </div>
+          <div class="about-me-image" data-aos="fade-left" data-aos-delay="200">
+            <img src="images/angelo.png" alt="Angelo Joe Delos Santos Profile Picture" class="about-me-avatar" loading="lazy"/>
+          </div>
+        </div>
+      </section>
       
-      <div class="about-me-image" data-aos="fade-left" data-aos-delay="200">
-        <img src="images/angelo.png" alt="Angelo Joe Delos Santos Profile Picture" class="about-me-avatar" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="skills-section" id="skills" data-aos="fade-up" data-aos-delay="400">
-    <div class="skills-container">
-      <!-- Languages Column -->
-      <div class="skill-column">
-        <h3>Languages</h3>
-        <div class="skill-item">
-          <img src="images/python.png" alt="Python Icon" class="skill-icon" />
-          <span>Python</span>
+      <!-- Skills Section -->
+      <section class="skills-section" id="skills" data-aos="fade-up" data-aos-delay="400">
+        <div class="skills-container">
+          <!-- Languages Column -->
+          <div class="skill-column">
+            <h3>Languages</h3>
+            <div class="skill-item">
+              <img src="images/python.png" alt="Python Icon" class="skill-icon" loading="lazy"/>
+              <span>Python</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/flutter.png" alt="Flutter Icon" class="skill-icon" loading="lazy"/>
+              <span>Flutter</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/javascript.png" alt="JavaScript Icon" class="skill-icon" loading="lazy"/>
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/cplusplus.png" alt="C++ Icon" class="skill-icon" loading="lazy"/>
+              <span>C++</span>
+            </div>
+          </div>
+          <!-- Cloud Column -->
+          <div class="skill-column">
+            <h3>Cloud</h3>
+            <div class="skill-item">
+              <img src="images/amazonwebservices.png" alt="AWS Icon" class="skill-icon" loading="lazy"/>
+              <span>AWS</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/googlecloud.png" alt="Google Cloud Icon" class="skill-icon" loading="lazy"/>
+              <span>Google Cloud</span>
+            </div>
+          </div>
+          <!-- Tools Column -->
+          <div class="skill-column">
+            <h3>Tools</h3>
+            <div class="skill-item">
+              <img src="images/git.png" alt="Git Icon" class="skill-icon" loading="lazy"/>
+              <span>Git</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/github.png" alt="GitHub Icon" class="skill-icon" loading="lazy"/>
+              <span>GitHub</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/docker.png" alt="Docker Icon" class="skill-icon" loading="lazy"/>
+              <span>Docker</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/nginx.png" alt="Nginx Icon" class="skill-icon" loading="lazy"/>
+              <span>Nginx</span>
+            </div>
+          </div>
+          <!-- Databases Column -->
+          <div class="skill-column">
+            <h3>Databases</h3>
+            <div class="skill-item">
+              <img src="images/mysql.png" alt="MySQL Icon" class="skill-icon" loading="lazy"/>
+              <span>MySQL</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/sqlite.png" alt="SQLite Icon" class="skill-icon" loading="lazy"/>
+              <span>SQLite</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/postgresql.png" alt="PostgreSQL Icon" class="skill-icon" loading="lazy"/>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="skill-item">
+              <img src="images/firebase.png" alt="Firebase Icon" class="skill-icon" loading="lazy"/>
+              <span>Firebase</span>
+            </div>
+          </div>
         </div>
-        <div class="skill-item">
-          <img src="images/flutter.png" alt="Flutter Icon" class="skill-icon" />
-          <span>Flutter</span>
+      </section>
+      
+      <!-- Experience Section -->
+      <section class="experience-section" id="experience" data-aos="fade-up">
+        <h2>Work Experience</h2>
+        <div class="experience-grid">
+          <!-- Inspiro -->
+          <article class="experience-card" data-aos="fade-up">
+            <a href="https://inspiro.com/" target="_blank" class="company-link" aria-label="Inspiro Relia Company Inc.">
+              <img src="images/inspiro.png" alt="Inspiro Logo" class="company-logo" loading="lazy">
+            </a>
+            <div class="card-text">
+              <h3><a href="https://inspiro.com/" target="_blank">Inspiro Relia Company Inc.</a></h3>
+              <p class="role">Seasonal Customer Service Representative</p>
+              <p class="dates">March 2022 - May 2022</p>
+              <p class="description">Managed chat sessions, ensured quick responses, and escalated issues when necessary.</p>
+              <div class="skills">
+                <span class="skill">Chat Support</span>
+                <span class="skill">Customer Service</span>
+                <span class="skill">Communication Skill</span>
+              </div>
+              <a href="https://inspiro.com/about/" class="learn-more" target="_blank">Learn More</a>
+            </div>
+          </article>
+          <!-- Concentrix -->
+          <article class="experience-card" data-aos="fade-up">
+            <a href="https://www.concentrix.com" target="_blank" class="company-link" aria-label="Concentrix CVG Philippines Inc.">
+              <img src="images/concentrix.png" alt="Concentrix Logo" class="company-logo" loading="lazy">
+            </a>
+            <div class="card-text">
+              <h3><a href="https://www.concentrix.com" target="_blank">Concentrix CVG Philippines Inc.</a></h3>
+              <p class="role">Full-Time Customer Service Representative</p>
+              <p class="dates">June 2022 - January 2023</p>
+              <p class="description">Handled financial inquiries, maintained key performance metrics, and achieved high CSAT scores.</p>
+              <div class="skills">
+                <span class="skill">Customer Service</span>
+                <span class="skill">Communication Skill</span>
+              </div>
+              <a href="https://www.concentrix.com/about/" class="learn-more" target="_blank">Learn More</a>
+            </div>
+          </article>
+          <!-- PESO Manila -->
+          <article class="experience-card" data-aos="fade-up">
+            <a href="https://www.facebook.com/pesocityofmanila/" target="_blank" class="company-link" aria-label="Public Employment Service Office of Manila">
+              <img src="images/peso.png" alt="PESO Manila Logo" class="company-logo" loading="lazy">
+            </a>
+            <div class="card-text">
+              <h3><a href="https://www.facebook.com/pesocityofmanila/" target="_blank">Public Employment Service Office of Manila</a></h3>
+              <p class="role">Part-Time Clinical Assistant</p>
+              <p class="dates">June 2023 - August 2023</p>
+              <p class="description">Organized health records, verified X-ray results, and ensured accurate documentation.</p>
+              <div class="skills">
+                <span class="skill">Administrative Support</span>
+                <span class="skill">Management Skill</span>
+              </div>
+              <a href="https://www.facebook.com/pesocityofmanila" class="learn-more" target="_blank">Learn More</a>
+            </div>
+          </article>
+          <!-- Achieve Without Borders -->
+          <article class="experience-card" data-aos="fade-up">
+            <a href="https://achievewithoutborders.com/" target="_blank" class="company-link" aria-label="Achieve Without Borders Inc.">
+              <img src="images/achieve.png" alt="Achieve Without Borders Logo" class="company-logo" loading="lazy">
+            </a>
+            <div class="card-text">
+              <h3><a href="https://achievewithoutborders.com/" target="_blank">Achieve Without Borders Inc.</a></h3>
+              <p class="role">Cloud Engineering Intern</p>
+              <p class="dates">November 2024 - February 2025</p>
+              <p class="description">Focused on ERP &amp; Odoo infrastructure, optimized performance, and collaborated on Google Cloud solutions.</p>
+              <div class="skills">
+                <span class="skill">Google Cloud</span>
+                <span class="skill">Odoo</span>
+              </div>
+              <a href="https://achievewithoutborders.com/" class="learn-more" target="_blank">Learn More</a>
+            </div>
+          </article>
+          <!-- Delsan Office System Corp. -->
+          <article class="experience-card" data-aos="fade-up">
+            <a href="https://delsanonline.com/about.html" target="_blank" class="company-link" aria-label="Delsan Office System Corp.">
+              <img src="images/delsan.png" alt="Delsan Logo" class="company-logo" loading="lazy">
+            </a>
+            <div class="card-text">
+              <h3><a href="https://delsanonline.com/about.html" target="_blank">Delsan Office System Corp.</a></h3>
+              <p class="role">DB Admin Intern</p>
+              <p class="dates">February 2025 - March 2025</p>
+              <p class="description">Maintained databases, optimized data retrieval, and troubleshot printer issues.</p>
+              <div class="skills">
+                <span class="skill">Quality Testing</span>
+                <span class="skill">Database Administration</span>
+              </div>
+              <a href="https://delsanonline.com/about.html" class="learn-more" target="_blank">Learn More</a>
+            </div>
+          </article>
         </div>
-        <div class="skill-item">
-          <img src="images/javascript.png" alt="JavaScript Icon" class="skill-icon" />
-          <span>JavaScript</span>
+      </section>
+      
+      <!-- Certifications Section -->
+      <section id="certifications" class="certifications-section" data-aos="fade-up">
+        <h2>Certifications</h2>
+        <div class="certifications-grid">
+          <!-- AWS CCP -->
+          <article class="cert-card">
+            <div class="cert-image">
+              <a href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank" aria-label="AWS Certified Cloud Practitioner Badge">
+                <img src="images/AWS CCP1.png" alt="AWS Certified Cloud Practitioner Badge" class="achievement-icon" loading="lazy">
+              </a>
+            </div>
+            <div class="cert-info">
+              <h3>AWS Certified Cloud Practitioner (CLF-CO2)</h3>
+              <p class="cert-dates">
+                Passed: January 25, 2025<br>
+                Expires: January 25, 2028
+              </p>
+              <a class="verify-button" href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank">Verify Certificate</a>
+            </div>
+          </article>
+          <!-- AI Fundamentals -->
+          <article class="cert-card">
+            <div class="cert-image">
+              <a href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank" aria-label="AI Fundamentals Certificate Badge">
+                <img src="images/AIF0027125905030.png" alt="AI Fundamentals Certificate Badge" class="achievement-icon" loading="lazy">
+              </a>
+            </div>
+            <div class="cert-info">
+              <h3>AI Fundamentals Certificate</h3>
+              <p class="cert-dates">Passed: November 2024</p>
+              <a class="verify-button" href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank">Verify Certificate</a>
+            </div>
+          </article>
+          <!-- Data Literacy -->
+          <article class="cert-card">
+            <div class="cert-image">
+              <a href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank" aria-label="Data Literacy Certificate Badge">
+                <img src="images/DL0033130428625.png" alt="Data Literacy Certificate Badge" class="achievement-icon" loading="lazy">
+              </a>
+            </div>
+            <div class="cert-info">
+              <h3>Data Literacy Certificate</h3>
+              <p class="cert-dates">Passed: September 2024</p>
+              <a class="verify-button" href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank">Verify Certificate</a>
+            </div>
+          </article>
         </div>
-        <div class="skill-item">
-          <img src="images/cplusplus.png" alt="C++ Icon" class="skill-icon" />
-          <span>C++</span>
+      </section>
+      
+      <!-- School Projects Section -->
+      <section id="projects" class="projects-section" data-aos="fade-up">
+        <h2>School Projects</h2>
+        <div class="projects-grid">
+          <!-- VendoMedicine -->
+          <article class="project-card" data-aos="fade-up">
+            <img src="images/vendomed.png" alt="VendoMedicine Project Screenshot" class="project-image" loading="lazy">
+            <div class="project-content">
+              <h3>VendoMedicine</h3>
+              <p>VendoMed is an IoT-powered vending machine designed to dispense OTC medications through an automated, user-friendly interface. It features real-time inventory tracking, multiple payment options, and an RFID-based reward system.</p>
+              <div class="project-tags">
+                <span class="tag flutter">Flutter</span>
+                <span class="tag sqlite">SQLite</span>
+                <span class="tag esp32">ESP32</span>
+              </div>
+              <a href="https://github.com/Ruoneee/vendomed_flutter.git" class="btn-source" target="_blank" aria-label="Source Code on GitHub">
+                <img src="images/github.png" alt="GitHub Icon" class="github-icon" loading="lazy">
+                Source Code
+              </a>
+            </div>
+          </article>
+          <!-- Library Management System -->
+          <article class="project-card" data-aos="fade-up">
+            <img src="images/libtech.png" alt="Library Management System Screenshot" class="project-image" loading="lazy">
+            <div class="project-content">
+              <h3>Library Management System (Legarda Elementary School)</h3>
+              <p>Developed a system to streamline book tracking and database management for Legarda Elementary School, improving operational efficiency.</p>
+              <div class="project-tags">
+                <span class="tag qtcreator">QtCreator</span>
+                <span class="tag sqlite">SQLite</span>
+                <span class="tag cpp">C++</span>
+              </div>
+              <a href="https://github.com/angelojoe20/Library-Management-System.git" class="btn-source" target="_blank" aria-label="Source Code on GitHub">
+                <img src="images/github.png" alt="GitHub Icon" class="github-icon" loading="lazy">
+                Source Code
+              </a>
+            </div>
+          </article>
         </div>
-      </div>
-
-      <!-- Cloud Column -->
-      <div class="skill-column">
-        <h3>Cloud</h3>
-        <div class="skill-item">
-          <img src="images/amazonwebservices.png" alt="AWS Icon" class="skill-icon" />
-          <span>AWS</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/googlecloud.png" alt="Google Cloud Icon" class="skill-icon" />
-          <span>Google Cloud</span>
-        </div>
-      </div>
-
-      <!-- Tools Column -->
-      <div class="skill-column">
-        <h3>Tools</h3>
-        <div class="skill-item">
-          <img src="images/git.png" alt="Git Icon" class="skill-icon" />
-          <span>Git</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/github.png" alt="GitHub Icon" class="skill-icon" />
-          <span>GitHub</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/docker.png" alt="Docker Icon" class="skill-icon" />
-          <span>Docker</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/nginx.png" alt="Nginx Icon" class="skill-icon" />
-          <span>Nginx</span>
-        </div>
-      </div>
-
-      <!-- Databases Column -->
-      <div class="skill-column">
-        <h3>Databases</h3>
-        <div class="skill-item">
-          <img src="images/mysql.png" alt="MySQL Icon" class="skill-icon" />
-          <span>MySQL</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/sqlite.png" alt="SQLite Icon" class="skill-icon" />
-          <span>SQLite</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/postgresql.png" alt="PostgreSQL Icon" class="skill-icon" />
-          <span>PostgreSQL</span>
-        </div>
-        <div class="skill-item">
-          <img src="images/firebase.png" alt="Firebase Icon" class="skill-icon" />
-          <span>Firebase</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="experience-section" id="experience" data-aos="fade-up">
-    <h2>Work Experience</h2>
-    <div class="experience-grid">
-      <!-- Inspiro -->
-      <div class="experience-card" data-aos="fade-up">
-        <a href="https://inspiro.com/" target="_blank" class="company-link">
-          <img src="images/inspiro.png" alt="Inspiro Logo" class="company-logo">
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <p>&copy; 2025 Angelo Joe Delos Santos. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank" aria-label="LinkedIn" class="btn-social">
+          <img src="images/linkedin.png" alt="LinkedIn Icon" loading="lazy">
         </a>
-        <div class="card-text">
-          <h3><a href="https://inspiro.com/" target="_blank">Inspiro Relia Company Inc.</a></h3>
-          <p class="role">Seasonal Customer Service Representative</p>
-          <p class="dates">March 2022 - May 2022</p>
-          <p class="description">Managed chat sessions, ensured quick responses, and escalated issues when necessary.</p>
-          <div class="skills">
-            <span class="skill">Chat Support</span>
-            <span class="skill">Customer Service</span>
-            <span class="skill">Communication Skill</span>
-          </div>
-          <a href="https://inspiro.com/about/" class="learn-more">Learn More</a>
-        </div>
-      </div>
-      <!-- Concentrix -->
-      <div class="experience-card" data-aos="fade-up">
-        <a href="https://www.concentrix.com" target="_blank" class="company-link">
-          <img src="images/concentrix.png" alt="Concentrix Logo" class="company-logo">
+        <a href="https://github.com/angelojoe20" target="_blank" aria-label="GitHub" class="btn-social">
+          <img src="images/github.png" alt="GitHub Icon" loading="lazy">
         </a>
-        <div class="card-text">
-          <h3><a href="https://www.concentrix.com" target="_blank">Concentrix CVG Philippines Inc.</a></h3>
-          <p class="role">Full-Time Customer Service Representative</p>
-          <p class="dates">June 2022 - January 2023</p>
-          <p class="description">Handled financial inquiries, maintained key performance metrics, and achieved high CSAT scores.</p>
-          <div class="skills">
-            <span class="skill">Customer Service</span>
-            <span class="skill">Communication Skill</span>
-          </div>
-          <a href="https://www.concentrix.com/about/" class="learn-more">Learn More</a>
-        </div>
-      </div>
-      <!-- PESO Manila -->
-      <div class="experience-card" data-aos="fade-up">
-        <a href="https://www.facebook.com/pesocityofmanila/" target="_blank" class="company-link">
-          <img src="images/peso.png" alt="PESO Manila Logo" class="company-logo">
+        <a href="https://www.instagram.com/https.geloo" target="_blank" aria-label="Instagram" class="btn-social">
+          <img src="images/instagram.png" alt="Instagram Icon" loading="lazy">
         </a>
-        <div class="card-text">
-          <h3><a href="https://www.facebook.com/pesocityofmanila/" target="_blank">Public Employment Service Office of Manila</a></h3>
-          <p class="role">Part-Time Clinical Assistant</p>
-          <p class="dates">June 2023 - August 2023</p>
-          <p class="description">Organized health records, verified X-ray results, and ensured accurate documentation.</p>
-          <div class="skills">
-            <span class="skill">Administrative Support</span>
-            <span class="skill">Management Skill</span>
-          </div>
-          <a href="https://www.facebook.com/pesocityofmanila" class="learn-more">Learn More</a>
-        </div>
       </div>
-      <!-- Achieve Without Borders -->
-      <div class="experience-card" data-aos="fade-up">
-        <a href="https://achievewithoutborders.com/" target="_blank" class="company-link">
-          <img src="images/achieve.png" alt="Achieve Without Borders Logo" class="company-logo">
-        </a>
-        <div class="card-text">
-          <h3><a href="https://achievewithoutborders.com/" target="_blank">Achieve Without Borders Inc.</a></h3>
-          <p class="role">Cloud Engineering Intern</p>
-          <p class="dates">November 2024 - February 2025</p>
-          <p class="description">Focused on ERP & Odoo infrastructure, optimized performance, and collaborated on Google Cloud solutions.</p>
-          <div class="skills">
-            <span class="skill">Google Cloud</span>
-            <span class="skill">Odoo</span>
-          </div>
-          <a href="https://achievewithoutborders.com/" class="learn-more">Learn More</a>
-        </div>
-      </div>
-      <!-- Delsan Office System Corp. -->
-      <div class="experience-card" data-aos="fade-up">
-        <a href="https://delsanonline.com/about.html" target="_blank" class="company-link">
-          <img src="images/delsan.png" alt="Delsan Logo" class="company-logo">
-        </a>
-        <div class="card-text">
-          <h3><a href="https://delsanonline.com/about.html" target="_blank">Delsan Office System Corp.</a></h3>
-          <p class="role">DB Admin Intern</p>
-          <p class="dates">February 2025 - March 2025</p>
-          <p class="description">Maintained databases, optimized data retrieval, and troubleshot printer issues.</p>
-          <div class="skills">
-            <span class="skill">Quality Testing</span>
-            <span class="skill">Database Administration</span>
-          </div>
-          <a href="https://delsanonline.com/about.html" class="learn-more">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="certifications-section" data-aos="fade-up">
-    <h2>Certifications</h2>
-    <div class="certifications-grid">
-      <!-- AWS CCP -->
-      <article class="cert-card">
-        <div class="cert-image">
-          <a href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank">
-            <img src="images/AWS CCP1.png" alt="AWS Certified Cloud Practitioner Badge" class="achievement-icon">
-          </a>
-        </div>
-        <div class="cert-info">
-          <h3>AWS Certified Cloud Practitioner (CLF-CO2)</h3>
-          <p class="cert-dates">
-            Passed: January 25, 2025<br>
-            Expires: January 25, 2028
-          </p>
-          <a class="verify-button" href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank">
-            Verify Certificate
-          </a>
-        </div>
-      </article>
-      <!-- AI Fundamentals -->
-      <article class="cert-card">
-        <div class="cert-image">
-          <a href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank">
-            <img src="images/AIF0027125905030.png" alt="AI Fundamentals Certificate Badge" class="achievement-icon">
-          </a>
-        </div>
-        <div class="cert-info">
-          <h3>AI Fundamentals Certificate</h3>
-          <p class="cert-dates">Passed: November 2024</p>
-          <a class="verify-button" href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank">
-            Verify Certificate
-          </a>
-        </div>
-      </article>
-      <!-- Data Literacy -->
-      <article class="cert-card">
-        <div class="cert-image">
-          <a href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank">
-            <img src="images/DL0033130428625.png" alt="Data Literacy Certificate Badge" class="achievement-icon">
-          </a>
-        </div>
-        <div class="cert-info">
-          <h3>Data Literacy Certificate</h3>
-          <p class="cert-dates">Passed: September 2024</p>
-          <a class="verify-button" href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank">
-            Verify Certificate
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- School Projects Section -->
-  <section id="projects" class="projects-section" data-aos="fade-up">
-    <h2>School Projects</h2>
-    <div class="projects-grid">
-      <!-- VendoMedicine -->
-      <div class="project-card" data-aos="fade-up">
-        <img src="images/vendomed.png" alt="VendoMedicine Project Screenshot" class="project-image" />
-        <div class="project-content">
-          <h3>VendoMedicine</h3>
-          <p>VendoMed is an IoT-powered vending machine designed to dispense OTC medications through an automated, user-friendly interface. It features real-time inventory tracking, multiple payment options, and an RFID-based reward system.</p>
-          <div class="project-tags">
-            <span class="tag flutter">Flutter</span>
-            <span class="tag sqlite">SQLite</span>
-            <span class="tag esp32">ESP32</span>
-          </div>
-          <a href="https://github.com/Ruoneee/vendomed_flutter.git" class="btn-source" target="_blank">
-            <img src="images/github.png" alt="GitHub Icon" class="github-icon" />
-            Source Code
-          </a>
-        </div>
-      </div>
-      <!-- Library Management System -->
-      <div class="project-card" data-aos="fade-up">
-        <img src="images/libtech.png" alt="Library Management System Screenshot" class="project-image" />
-        <div class="project-content">
-          <h3>Library Management System (Legarda Elementary School)</h3>
-          <p>Developed a system to streamline book tracking and database management for Legarda Elementary School, improving operational efficiency.</p>
-          <div class="project-tags">
-            <span class="tag qtcreator">QtCreator</span>
-            <span class="tag sqlite">SQLite</span>
-            <span class="tag cpp">C++</span>
-          </div>
-          <a href="https://github.com/angelojoe20/Library-Management-System.git" class="btn-source" target="_blank">
-            <img src="images/github.png" alt="GitHub Icon" class="github-icon" />
-            Source Code
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Angelo Joe Delos Santos. All rights reserved.</p>
-    <div class="footer-socials">
-      <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank" aria-label="LinkedIn" class="btn-social">
-        <img src="images/linkedin.png" alt="LinkedIn Icon" />
-      </a>
-      <a href="https://github.com/angelojoe20" target="_blank" aria-label="GitHub" class="btn-social">
-        <img src="images/github.png" alt="GitHub Icon" />
-      </a>
-      <a href="https://www.instagram.com/https.geloo" target="_blank" aria-label="Instagram" class="btn-social">
-        <img src="images/instagram.png" alt="Instagram Icon" />
-      </a>
-    </div>
-  </footer>
-
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Custom JS -->
-  <script src="assets/script.js"></script>
-</body>
+    </footer>
+    
+    <!-- External JS Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/script.js"></script>
+  </body>
 </html>
