@@ -278,7 +278,7 @@ body {
 /* -- About Me Section -- */
 .about-me-section {
   background: rgba(0, 123, 255, 0.05);  /* 5% tint of primary blue */
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 }
 .about-me-container {
   max-width: 1200px;
@@ -363,7 +363,7 @@ body {
 /* -- Skills Section -- */
 .skills-section {
   background: rgba(0, 123, 255, 0.05); /* 5% tint of primary blue */
-  padding: 4rem 1rem;
+  padding: 1rem 1rem;
 }
 
 /* Section heading */
@@ -456,61 +456,144 @@ body {
   }
 }
 
-/* Experience Section */
+/* -- Experience Section -- */
 .experience-section {
-  padding: 4rem 1rem; background: var(--white-color);
+  background: rgba(0, 123, 255, 0.05);  /* 5% tint of primary blue */
+  padding: 4rem 1rem;
 }
-.experience-section h2 {
-  text-align: center; margin-bottom: 3rem; font-size: 2rem; color: var(--dark-text);
+
+/* Section heading */
+.section-title {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  font-size: 2.25rem;
+  color: var(--white-color);
+  font-weight: 700;
+  text-align: center;
+  position: relative;
 }
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Grid container: force every row to 1fr so cards match height */
 .experience-grid {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;         /* <-- equal‑height rows */
+  gap: 2rem;
+  align-items: stretch;        /* <-- stretch cards to fill */
 }
+
 @media (max-width: 768px) {
-  .experience-grid { grid-template-columns: 1fr; }
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* Card styling: fill full row height */
 .experience-card {
-  background-color: rgba(255,255,255,0.95); color: var(--dark-text); border: 1px solid #ddd;
-  border-radius: 8px; padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;     /* stack content vertically */
+  height: 100%;               /* <-- fill the grid row */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .experience-card:hover {
-  transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
+
+/* Logo */
 .company-logo {
-  width: 48px; height: 48px; object-fit: contain; border-radius: 4px; transition: transform 0.3s;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
 }
-.company-logo:hover { transform: scale(1.1); }
+.company-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Text container: push “Learn More” to bottom */
 .card-text {
-  display: flex; flex-direction: column;
+  flex: 1;                    /* <-- take up remaining space */
+  display: flex;
+  flex-direction: column;
 }
 .card-text h3 {
-  margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark-blue);
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
 }
 .card-text h3 a {
-  text-decoration: none; color: inherit;
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+}
+.card-text h3 a::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+  margin-top: 4px;
+  border-radius: 1px;
 }
 .card-text .role {
-  margin-top: 2px; font-size: 0.95rem; font-weight: 400; color: var(--gray-text);
+  margin-top: 2px;
+  font-size: 0.95rem;
+  color: var(--gray-text);
 }
 .dates {
-  font-size: 0.85rem; color: var(--lighter-gray); margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.85rem;
+  color: var(--lighter-gray);
 }
 .description {
-  font-size: 0.9rem; color: #444; line-height: 1.5;
+  flex: none;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
 }
-.skills { margin-top: 1rem; }
+
+/* Skill pills */
+.skills {
+  margin-top: 1rem;
+}
 .skill {
-  display: inline-block; background-color: #e0e0e0; color: #555; font-size: 0.8rem;
-  padding: 0.3rem 0.6rem; border-radius: 4px; margin-right: 0.5rem; margin-bottom: 0.5rem;
+  display: inline-block;
+  background: #e0e0e0;
+  color: #555;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  margin: 0 0.5rem 0.5rem 0;
 }
+
+/* Learn More link sits at bottom */
 .learn-more {
-  display: inline-block; margin-top: 1rem; font-size: 0.9rem;
-  color: var(--primary-color); text-decoration: none; border-bottom: 1px solid transparent;
-  transition: border-bottom 0.3s;
+  margin-top: auto;           /* <-- pushes it down */
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s ease;
 }
-.learn-more:hover { border-bottom: 1px solid var(--primary-color); }
+.learn-more:hover {
+  border-bottom-color: var(--primary-color);
+}
 
 /* Certifications Section */
 .certifications-section {
