@@ -9,7 +9,7 @@
     <meta name="description" content="Angelo Joe Delos Santos - Computer Engineering student specialized in Cloud and Data Engineering. Explore my projects, experience, and skills."/>
     <meta property="og:title" content="Angelo Joe Delos Santos - Resume">
     <meta property="og:description" content="Explore my projects, experience, certifications, and skills.">
-    <meta property="og:image" content="images/og-image.jpg"> <!-- Replace with your image URL -->
+    <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:url" content="https://angelojoe-website.vercel.app/">
     <meta name="twitter:card" content="summary_large_image">
     
@@ -40,8 +40,8 @@
       <nav class="navbar" role="navigation">
         <div class="nav-logo">
           <a href="#home">MyProfile</a>
-        </div>  
-        <ul class="nav-links">
+        </div>
+        <ul id="navLinks" class="nav-links">
           <li><a href="#about-me">About Me</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#leadership">Organizations</a></li>
@@ -52,37 +52,60 @@
       
       <!-- Hero Section -->
       <section class="hero" id="home" data-aos="fade-up">
-        <!-- Particles Container (decorative; hidden from assistive technologies) -->
         <div id="particles-js" aria-hidden="true"></div>
-        <!-- Decorative background shape -->
         <div class="hero-bg-shape" aria-hidden="true"></div>
         <div class="hero-content-container">
+          
           <!-- Left Column: Text & CTA -->
           <div class="hero-left">
             <p class="hero-greeting">Hi, my name is</p>
             <h1 class="hero-title">Angelo Joe Delos Santos.</h1>
+            
+            <!-- Static Tagline -->
+            <p class="hero-tagline">IoT & Cloud Engineer | Open‑Source Enthusiast</p>
+            
+            <!-- Typed.js Subtitle -->
             <h2 class="hero-subtitle"><span id="typed-text"></span></h2>
+            
             <!-- Hero Buttons + Social Icons -->
             <div class="hero-buttons">
-              <a href="pdfs/Angelo_CV.pdf" class="btn-cta" download="Angelo_CV.pdf">Resume</a>
+              <!-- Primary CTA -->
+              <a href="pdfs/Angelo_CV.pdf" class="btn-cta" download="Angelo_CV.pdf">
+                Download Resume
+              </a>
+              <!-- Secondary CTA -->
+              <a href="#projects" class="btn-cta btn-secondary">
+                View Projects
+              </a>
+              
+              <!-- Social Icons -->
               <div class="hero-socials">
-                <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" target="_blank" aria-label="LinkedIn" class="btn-social">
+                <a href="https://www.linkedin.com/in/angelo-joe-delos-santos-535627283/" 
+                   target="_blank" aria-label="LinkedIn" class="btn-social">
                   <img src="images/linkedin.png" alt="LinkedIn Icon" />
                 </a>
-                <a href="https://github.com/angelojoe20" target="_blank" aria-label="GitHub" class="btn-social">
+                <a href="https://github.com/angelojoe20" 
+                   target="_blank" aria-label="GitHub" class="btn-social">
                   <img src="images/github.png" alt="GitHub Icon" />
                 </a>
-                <a href="https://www.instagram.com/https.geloo_/" target="_blank" aria-label="Instagram" class="btn-social">
+                <a href="https://www.instagram.com/https.geloo_/" 
+                   target="_blank" aria-label="Instagram" class="btn-social">
                   <img src="images/instagram.png" alt="Instagram Icon" />
                 </a>
               </div>
             </div>
           </div>
+          
           <!-- Right Column: Avatar/Image -->
           <div class="hero-right">
-            <img src="images/shs-graduatepic.jpg" alt="Angelo Joe Delos Santos Avatar" class="hero-avatar" loading="lazy"/>
+            <img src="images/shs-graduatepic.jpg"
+                 alt="Angelo Joe Delos Santos Avatar"
+                 class="hero-avatar"
+                 loading="lazy"/>
           </div>
+          
         </div>
+        
         <!-- Animated Scroll Indicator -->
         <div class="scroll-indicator">
           <a href="#about-me" aria-label="Scroll to About Me">
@@ -91,6 +114,7 @@
         </div>
       </section>
     </header>
+    
     <main>
       <!-- About Me Section -->
       <section class="about-me-section" id="about-me" data-aos="fade-up">
@@ -108,8 +132,6 @@
           </div>
         </div>
       </section>
-      
-      
       
       <!-- Skills Section -->
       <section class="skills-section" id="skills" data-aos="fade-up" data-aos-delay="400">
@@ -372,6 +394,7 @@
         </div>
       </section>
     </main>
+    
     <footer class="footer" role="contentinfo">
       <p>&copy; 2025 Angelo Joe Delos Santos. All rights reserved.</p>
       <div class="footer-socials">
