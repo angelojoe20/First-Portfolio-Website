@@ -19,6 +19,9 @@
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS CSS for scroll-triggered animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/style.css">
     
@@ -30,9 +33,6 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer"
     />
-    
-    <!-- AOS CSS for scroll-triggered animations -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
   <body>
     <header>
@@ -59,7 +59,10 @@
           <!-- Left Column: Text & CTA -->
           <div class="hero-left">
             <p class="hero-greeting">Hi, my name is</p>
-            <h1 class="hero-title">Angelo Joe Delos Santos.</h1>
+            
+            <div class="hero-title-wrapper">
+              <h1 class="hero-title">Angelo Joe Delos Santos.</h1>
+            </div>
             
             <!-- Static Tagline -->
             <p class="hero-tagline">IoT & Cloud Engineer | Open‑Source Enthusiast</p>
@@ -98,10 +101,12 @@
           
           <!-- Right Column: Avatar/Image -->
           <div class="hero-right">
-            <img src="images/shs-graduatepic.jpg"
-                 alt="Angelo Joe Delos Santos Avatar"
-                 class="hero-avatar"
-                 loading="lazy"/>
+            <div class="avatar-container">
+              <img src="images/shs-graduatepic.jpg"
+                   alt="Angelo Joe Delos Santos Avatar"
+                   class="hero-avatar"
+                   loading="lazy"/>
+            </div>
           </div>
           
         </div>
@@ -116,106 +121,95 @@
     </header>
     
     <main>
-      <!-- About Me Section -->
-      <section class="about-me-section" id="about-me" data-aos="fade-up">
-        <div class="about-me-bg" aria-hidden="true"></div>
-        <div class="about-me-container" data-aos="fade-right" data-aos-delay="100">
-          <div class="about-me-content">
-            <h2 class="about-me-title">About Me</h2>
-            <p class="about-me-description">
-              Hello! I'm Angelo Joe Delos Santos — a Computer Engineering student who loves turning challenges into creative solutions. I believe in continuous learning and innovation, always striving to make a meaningful impact.
-            </p>
-            <a href="https://www.facebook.com/eyydyyeyyy" class="btn-contact" data-aos="fade-up" data-aos-delay="300">Contact Me</a>
-          </div>
-          <div class="about-me-image" data-aos="fade-left" data-aos-delay="200">
-            <img src="images/angelo.png" alt="Angelo Joe Delos Santos Profile Picture" class="about-me-avatar" loading="lazy"/>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Skills Section -->
-      <section class="skills-section" id="skills" data-aos="fade-up" data-aos-delay="400">
-        <div class="skills-container">
-          <!-- Languages Column -->
-          <div class="skill-column">
-            <h3>Languages</h3>
-            <div class="skill-item">
-              <img src="images/python.png" alt="Python Icon" class="skill-icon" loading="lazy"/>
-              <span>Python</span>
+        <!-- About Me Section -->
+        <section class="about-me-section" id="about-me">
+          <div class="about-me-container">
+            <div class="about-me-content"
+                data-aos="fade-right"
+                data-aos-delay="150">
+              <h2 class="about-me-title"
+                  data-aos="fade-down"
+                  data-aos-delay="100">
+                About Me
+              </h2>
+              <p class="about-me-description"
+                data-aos="fade-up"
+                data-aos-delay="200">
+                Hello! I’m Angelo Joe Delos Santos — a 
+                <span class="highlight">Computer Engineering student</span> 
+                who loves turning challenges into creative solutions. I believe in continuous learning and innovation, always striving to make a meaningful impact.
+              </p>
+              <a href="https://www.facebook.com/eyydyyeyyy"
+                class="btn-contact"
+                data-aos="zoom-in"
+                data-aos-delay="300">
+                Contact Me
+              </a>
             </div>
-            <div class="skill-item">
-              <img src="images/flutter.png" alt="Flutter Icon" class="skill-icon" loading="lazy"/>
-              <span>Flutter</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/javascript.png" alt="JavaScript Icon" class="skill-icon" loading="lazy"/>
-              <span>JavaScript</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/cplusplus.png" alt="C++ Icon" class="skill-icon" loading="lazy"/>
-              <span>C++</span>
+            <div class="about-me-image-container"
+                data-tilt
+                data-tilt-max="15"
+                data-aos="fade-left"
+                data-aos-delay="250">
+              <img src="images/angelo.png"
+                  alt="Angelo Joe Delos Santos Profile Picture"
+                  class="about-me-avatar"
+                  loading="lazy"/>
             </div>
           </div>
-          <!-- Cloud Column -->
-          <div class="skill-column">
-            <h3>Cloud</h3>
-            <div class="skill-item">
-              <img src="images/amazonwebservices.png" alt="AWS Icon" class="skill-icon" loading="lazy"/>
-              <span>AWS</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/googlecloud.png" alt="Google Cloud Icon" class="skill-icon" loading="lazy"/>
-              <span>Google Cloud</span>
-            </div>
-          </div>
-          <!-- Tools Column -->
-          <div class="skill-column">
-            <h3>Tools</h3>
-            <div class="skill-item">
-              <img src="images/git.png" alt="Git Icon" class="skill-icon" loading="lazy"/>
-              <span>Git</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/github.png" alt="GitHub Icon" class="skill-icon" loading="lazy"/>
-              <span>GitHub</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/docker.png" alt="Docker Icon" class="skill-icon" loading="lazy"/>
-              <span>Docker</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/nginx.png" alt="Nginx Icon" class="skill-icon" loading="lazy"/>
-              <span>Nginx</span>
-            </div>
-          </div>
-          <!-- Databases Column -->
-          <div class="skill-column">
-            <h3>Databases</h3>
-            <div class="skill-item">
-              <img src="images/mysql.png" alt="MySQL Icon" class="skill-icon" loading="lazy"/>
-              <span>MySQL</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/sqlite.png" alt="SQLite Icon" class="skill-icon" loading="lazy"/>
-              <span>SQLite</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/postgresql.png" alt="PostgreSQL Icon" class="skill-icon" loading="lazy"/>
-              <span>PostgreSQL</span>
-            </div>
-            <div class="skill-item">
-              <img src="images/firebase.png" alt="Firebase Icon" class="skill-icon" loading="lazy"/>
-              <span>Firebase</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+        </section>
+
+            <!-- Skills Section -->
+            <section class="skills-section" id="skills" data-aos="fade-up">
+              <!-- Branded Section Heading -->
+              <h2 class="skills-title"
+                  data-aos="fade-down"
+                  data-aos-delay="100">
+                Skills
+              </h2>
+
+              <div class="skills-container">
+                <div class="skill-column"
+                    data-aos="fade-up"
+                    data-aos-delay="150">
+                  <h3>Languages</h3>
+                  <div class="skill-item"><img src="images/python.png"/><span>Python</span></div>
+                  <div class="skill-item"><img src="images/flutter.png"/><span>Flutter</span></div>
+                  <div class="skill-item"><img src="images/javascript.png"/><span>JavaScript</span></div>
+                  <div class="skill-item"><img src="images/cplusplus.png"/><span>C++</span></div>
+                </div>
+                <div class="skill-column"
+                    data-aos="fade-up"
+                    data-aos-delay="250">
+                  <h3>Cloud</h3>
+                  <div class="skill-item"><img src="images/amazonwebservices.png"/><span>AWS</span></div>
+                  <div class="skill-item"><img src="images/googlecloud.png"/><span>Google Cloud</span></div>
+                </div>
+                <div class="skill-column"
+                    data-aos="fade-up"
+                    data-aos-delay="350">
+                  <h3>Tools</h3>
+                  <div class="skill-item"><img src="images/git.png"/><span>Git</span></div>
+                  <div class="skill-item"><img src="images/github.png"/><span>GitHub</span></div>
+                  <div class="skill-item"><img src="images/docker.png"/><span>Docker</span></div>
+                  <div class="skill-item"><img src="images/nginx.png"/><span>Nginx</span></div>
+                </div>
+                <div class="skill-column"
+                    data-aos="fade-up"
+                    data-aos-delay="450">
+                  <h3>Databases</h3>
+                  <div class="skill-item"><img src="images/mysql.png"/><span>MySQL</span></div>
+                  <div class="skill-item"><img src="images/sqlite.png"/><span>SQLite</span></div>
+                  <div class="skill-item"><img src="images/postgresql.png"/><span>PostgreSQL</span></div>
+                  <div class="skill-item"><img src="images/firebase.png"/><span>Firebase</span></div>
+                </div>
+              </div>
+            </section>
+
       <!-- Experience Section -->
       <section class="experience-section" id="experience" data-aos="fade-up">
         <h2>Work Experience</h2>
         <div class="experience-grid">
-          <!-- Inspiro -->
           <article class="experience-card" data-aos="fade-up">
             <a href="https://inspiro.com/" target="_blank" class="company-link" aria-label="Inspiro Relia Company Inc.">
               <img src="images/inspiro.png" alt="Inspiro Logo" class="company-logo" loading="lazy">
@@ -233,7 +227,6 @@
               <a href="https://inspiro.com/about/" class="learn-more" target="_blank">Learn More</a>
             </div>
           </article>
-          <!-- Concentrix -->
           <article class="experience-card" data-aos="fade-up">
             <a href="https://www.concentrix.com" target="_blank" class="company-link" aria-label="Concentrix CVG Philippines Inc.">
               <img src="images/concentrix.png" alt="Concentrix Logo" class="company-logo" loading="lazy">
@@ -250,7 +243,6 @@
               <a href="https://www.concentrix.com/about/" class="learn-more" target="_blank">Learn More</a>
             </div>
           </article>
-          <!-- PESO Manila -->
           <article class="experience-card" data-aos="fade-up">
             <a href="https://www.facebook.com/pesocityofmanila/" target="_blank" class="company-link" aria-label="Public Employment Service Office of Manila">
               <img src="images/peso.png" alt="PESO Manila Logo" class="company-logo" loading="lazy">
@@ -267,7 +259,6 @@
               <a href="https://www.facebook.com/pesocityofmanila" class="learn-more" target="_blank">Learn More</a>
             </div>
           </article>
-          <!-- Achieve Without Borders -->
           <article class="experience-card" data-aos="fade-up">
             <a href="https://achievewithoutborders.com/" target="_blank" class="company-link" aria-label="Achieve Without Borders Inc.">
               <img src="images/achieve.png" alt="Achieve Without Borders Logo" class="company-logo" loading="lazy">
@@ -284,7 +275,6 @@
               <a href="https://achievewithoutborders.com/" class="learn-more" target="_blank">Learn More</a>
             </div>
           </article>
-          <!-- Delsan Office System Corp. -->
           <article class="experience-card" data-aos="fade-up">
             <a href="https://delsanonline.com/about.html" target="_blank" class="company-link" aria-label="Delsan Office System Corp.">
               <img src="images/delsan.png" alt="Delsan Logo" class="company-logo" loading="lazy">
@@ -308,7 +298,6 @@
       <section id="certifications" class="certifications-section" data-aos="fade-up">
         <h2>Certifications</h2>
         <div class="certifications-grid">
-          <!-- AWS CCP -->
           <article class="cert-card">
             <div class="cert-image">
               <a href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank" aria-label="AWS Certified Cloud Practitioner Badge">
@@ -324,7 +313,6 @@
               <a class="verify-button" href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank">Verify Certificate</a>
             </div>
           </article>
-          <!-- AI Fundamentals -->
           <article class="cert-card">
             <div class="cert-image">
               <a href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank" aria-label="AI Fundamentals Certificate Badge">
@@ -337,7 +325,6 @@
               <a class="verify-button" href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank">Verify Certificate</a>
             </div>
           </article>
-          <!-- Data Literacy -->
           <article class="cert-card">
             <div class="cert-image">
               <a href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank" aria-label="Data Literacy Certificate Badge">
@@ -357,7 +344,6 @@
       <section id="projects" class="projects-section" data-aos="fade-up">
         <h2>School Projects</h2>
         <div class="projects-grid">
-          <!-- VendoMedicine -->
           <article class="project-card" data-aos="fade-up">
             <img src="images/vendomed.png" alt="VendoMedicine Project Screenshot" class="project-image" loading="lazy">
             <div class="project-content">
@@ -374,7 +360,6 @@
               </a>
             </div>
           </article>
-          <!-- Library Management System -->
           <article class="project-card" data-aos="fade-up">
             <img src="images/libtech.png" alt="Library Management System Screenshot" class="project-image" loading="lazy">
             <div class="project-content">
@@ -412,7 +397,8 @@
     
     <!-- External JS Libraries -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.8.0/tsparticles.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     
     <!-- Custom JS -->

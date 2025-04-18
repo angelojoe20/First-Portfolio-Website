@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("AOS failed to load or reduced motion is enabled.");
   }
 
-  // Initialize Typed.js
+  // Typed.js subtitle
   if (typeof Typed !== "undefined") {
     new Typed("#typed-text", {
       strings: [
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initialize Particles.js if allowed
-  if (typeof particlesJS !== "undefined" && !prefersReducedMotion()) {
-    particlesJS("particles-js", {
+  // tsParticles init for interactive background
+  if (window.tsParticles && !prefersReducedMotion()) {
+    tsParticles.load("particles-js", {
       particles: {
         number: {
           value: window.innerWidth > 768 ? 80 : 40,
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         shape: { type: "circle" },
         opacity: { value: 0.5, random: false },
         size: { value: 3, random: true },
-        line_linked: {
+        links: {
           enable: true,
           distance: 150,
           color: "#504B38",
@@ -58,24 +58,49 @@ document.addEventListener("DOMContentLoaded", () => {
           direction: "none",
           random: false,
           straight: false,
-          out_mode: "out"
+          outModes: "out"
         }
       },
       interactivity: {
-        detect_on: "canvas",
+        detectsOn: "canvas",
         events: {
-          onhover: { enable: window.innerWidth > 768, mode: "grab" },
-          onclick: { enable: window.innerWidth > 768, mode: "push" }
+          onHover: {
+            enable: window.innerWidth > 768,
+            mode: "grab"
+          },
+          onClick: {
+            enable: window.innerWidth > 768,
+            mode: "push"
+          }
         },
         modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          push: { particles_nb: 4 }
+          grab: {
+            distance: 140,
+            links: { opacity: 1 }
+          },
+          push: {
+            quantity: 4
+          }
         }
       },
-      retina_detect: true
+      detectRetina: true
     });
   } else {
-    console.warn("Particles.js failed to load or reduced motion is enabled.");
+    console.warn("tsParticles failed to load or reduced motion is enabled.");
+  }
+
+  if (window.VanillaTilt) {
+    const aboutImg = document.querySelectorAll("[data-tilt]");
+    if (aboutImg.length) {
+      VanillaTilt.init(aboutImg, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2
+      });
+    }
+  } else {
+    console.warn("VanillaTilt failed to load.");
   }
 
   // Debounce utility for performance
@@ -132,7 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function calculateDuration(startDate, endDate) {
     const start = new Date(startDate);
     const end = endDate === "Present" ? new Date() : new Date(endDate);
-    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    let months = (end.getFullYear() - start.getFullYear()) * 12 +
+                 (end.getMonth() - start.getMonth());
     const years = Math.floor(months / 12);
     months %= 12;
     let result = "";
