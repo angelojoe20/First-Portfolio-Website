@@ -56,7 +56,7 @@ body {
   pointer-events: none;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   z-index: 999;
-  background: var(--primary-color);
+  background-color: rgba(0, 123, 255, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -456,145 +456,148 @@ body {
   }
 }
 
-/* -- Experience Section -- */
-.experience-section {
-  background: rgba(0, 123, 255, 0.05);  /* 5% tint of primary blue */
-  padding: 4rem 1rem;
-}
-
-/* Section heading */
-.section-title {
-  max-width: 1200px;
-  margin: 0 auto 2rem;
-  font-size: 2.25rem;
-  color: var(--white-color);
-  font-weight: 700;
-  text-align: center;
-  position: relative;
-}
-.section-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: var(--accent-color);
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
-
-/* Grid container: force every row to 1fr so cards match height */
-.experience-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;         /* <-- equal‑height rows */
-  gap: 2rem;
-  align-items: stretch;        /* <-- stretch cards to fill */
-}
-
-@media (max-width: 768px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
+/* --------------------------------------------------
+   Experience Section as Horizontal Timeline
+   -------------------------------------------------- */
+   .experience-section {
+    background: rgba(0, 123, 255, 0.05); /* same tint as Hero/About/Skills */
+    padding: 4rem 1rem;
+    min-height: 100vh;                   /* fill viewport so only this shows */
   }
-}
-
-/* Card styling: fill full row height */
-.experience-card {
-  display: flex;
-  flex-direction: column;     /* stack content vertically */
-  height: 100%;               /* <-- fill the grid row */
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.experience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-/* Logo */
-.company-logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-.company-logo:hover {
-  transform: scale(1.1);
-}
-
-/* Text container: push “Learn More” to bottom */
-.card-text {
-  flex: 1;                    /* <-- take up remaining space */
-  display: flex;
-  flex-direction: column;
-}
-.card-text h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-}
-.card-text h3 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  position: relative;
-}
-.card-text h3 a::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--accent-color);
-  margin-top: 4px;
-  border-radius: 1px;
-}
-.card-text .role {
-  margin-top: 2px;
-  font-size: 0.95rem;
-  color: var(--gray-text);
-}
-.dates {
-  margin: 0.5rem 0 1rem;
-  font-size: 0.85rem;
-  color: var(--lighter-gray);
-}
-.description {
-  flex: none;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #444;
-}
-
-/* Skill pills */
-.skills {
-  margin-top: 1rem;
-}
-.skill {
-  display: inline-block;
-  background: #e0e0e0;
-  color: #555;
-  font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  margin: 0 0.5rem 0.5rem 0;
-}
-
-/* Learn More link sits at bottom */
-.learn-more {
-  margin-top: auto;           /* <-- pushes it down */
-  font-size: 0.9rem;
-  color: var(--primary-color);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom 0.3s ease;
-}
-.learn-more:hover {
-  border-bottom-color: var(--primary-color);
-}
-
+  
+  /* Branded heading */
+  .experience-section .section-title {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    font-size: 2.25rem;
+    color: var(--white-color);
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+  }
+  .experience-section .section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Timeline wrapper */
+  .experience-section .timeline-horiz {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    position: relative;
+  }
+  .experience-section .timeline-horiz::-webkit-scrollbar {
+    height: 6px;
+  }
+  .experience-section .timeline-horiz::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+  }
+  /* white spine */
+  .experience-section .timeline-horiz::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0; right: 0;
+    height: 4px;
+    background: var(--white-color);
+    z-index: 1;
+  }
+  
+  /* Each card slot */
+  .experience-section .timeline-item {
+    flex: 0 0 300px;
+    margin: 0 1rem;
+    scroll-snap-align: center;
+    position: relative;
+  }
+  /* circle node */
+  .experience-section .timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--white-color);
+    border: 4px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 2;
+  }
+  
+  /* Card itself */
+  .experience-section .timeline-content {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .experience-section .timeline-content h3 {
+    margin: 0 0 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+  }
+  .experience-section .timeline-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    margin-bottom: 0.75rem;
+  }
+  .experience-section .timeline-content p {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #444;
+  }
+  
+  /* Skill pills */
+  .experience-section .timeline-content .skills {
+    margin: 0.75rem 0;
+  }
+  .experience-section .timeline-content .skill {
+    display: inline-block;
+    background: #e0e0e0;
+    color: #555;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    margin: 0 0.5rem 0.5rem 0;
+  }
+  
+  /* “Learn More” pinned to bottom */
+  .experience-section .timeline-content .learn-more {
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+  }
+  .experience-section .timeline-content .learn-more:hover {
+    border-bottom-color: var(--primary-color);
+  }
+  
+  /* Mobile fallback: items almost full‑width */
+  @media (max-width: 600px) {
+    .experience-section .timeline-item {
+      flex: 0 0 80%;
+      margin: 0 0.5rem;
+    }
+  }
+  
 /* Certifications Section */
 .certifications-section {
   background: var(--white-color); padding: 4rem 1rem; text-align: center;
