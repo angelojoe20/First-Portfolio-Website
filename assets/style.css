@@ -454,9 +454,28 @@ body {
    Experience Timeline Section
    ————————————————————— */
    .experience-section {
+    position: relative;       /* for layering particles */
+    overflow: hidden;
     background: rgba(0, 123, 255, 0.05);
     padding: 6rem 2rem;
   }
+  
+  /* tiny‐particle layer */
+  .exp-particles {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* bring timeline above particles */
+  .experience-section .timeline {
+    position: relative;
+    z-index: 1;
+    overflow: visible;        /* allow markers to overflow */
+  }
+  
+  /* section title */
   .experience-section .section-title {
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -469,8 +488,7 @@ body {
   .experience-section .section-title::after {
     content: "";
     display: block;
-    width: 60px;
-    height: 4px;
+    width: 60px; height: 4px;
     background: var(--accent-color);
     margin: 8px auto 0;
     border-radius: 2px;
@@ -478,7 +496,6 @@ body {
   
   /* Timeline spine */
   .timeline {
-    position: relative;
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 0;
@@ -500,6 +517,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 3rem;
+    overflow: visible;        /* allow markers to overflow */
   }
   .timeline-entry:last-child {
     margin-bottom: 0;
@@ -511,8 +529,7 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
+    width: 50px; height: 50px;
     background: var(--white-color);
     border: 4px solid var(--accent-color);
     border-radius: 50%;
@@ -520,23 +537,23 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    z-index: 3; /* <-- always above the spine (1) and cards (2) */
+    z-index: 10;              /* on top of cards & spine */
   }
   .timeline-marker img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: contain;
   }
   
   /* Content block */
   .timeline-content {
+    position: relative;
+    z-index: 2;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 2;
   }
   .timeline-content:hover {
     transform: translateY(-4px);
@@ -558,7 +575,9 @@ body {
   /* Header styling */
   .exp-header {
     position: relative;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg,
+               var(--primary-color),
+               var(--secondary-color));
     color: var(--white-color);
     padding: 1rem;
   }
@@ -571,18 +590,20 @@ body {
     font-size: 0.9rem;
     opacity: 0.9;
   }
-  /* Underline animation */
   .exp-header::after {
     content: "";
     position: absolute;
     bottom: 0; left: 50%;
     width: 0; height: 4px;
     background: var(--accent-color);
-    transition: width 0.3s ease, left 0.3s ease;
+    transition: width 0.3s ease,
+                left 0.3s ease;
   }
   .timeline-content:hover .exp-header::after {
     left: 0; width: 100%;
   }
+  
+  /* Body + glow */
   .exp-body {
     position: relative;
     padding: 1rem;
@@ -618,7 +639,8 @@ body {
     border-radius: 4px;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease,
+                background 0.2s ease;
   }
   .skill:hover {
     transform: scale(1.1);
@@ -633,14 +655,15 @@ body {
     text-decoration: none;
     opacity: 0;
     transform: translateY(8px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease,
+                transform 0.3s ease;
   }
   .timeline-content:hover .learn-more {
     opacity: 1;
     transform: translateY(0);
   }
   
-  /* Responsive: collapse to one column */
+  /* Responsive */
   @media (max-width: 768px) {
     .timeline-entry {
       grid-template-columns: 1fr;
@@ -654,49 +677,190 @@ body {
     .timeline-marker {
       left: 1rem;
       transform: translateX(0);
-      /* z-index already set above */
     }
   }
   
-/* Certifications Section */
-.certifications-section {
-  background: rgba(0, 123, 255, 0.05); ; padding: 10rem 4rem; text-align: center;
-}
-.certifications-section h2 {
-  margin-bottom: 3rem; font-size: 2rem; color: var(--white-color);
-}
-.certifications-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 2rem; max-width: 1200px; margin: 0 auto;
-}
-.cert-card {
-  background: rgba(255,255,255,0.95); border-radius: 8px; padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: flex; flex-direction: column;
-  align-items: center; min-height: 400px;
-}
-.cert-image img {
-  width: 100%; max-height: 180px; object-fit: contain;
-}
-.cert-info { margin-top: 1rem; }
-.cert-info h3 {
-  font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark-blue);
-}
-.cert-dates {
-  font-size: 0.9rem; color: var(--gray-text); margin-bottom: 1rem;
-}
-.verify-button {
-  display: inline-block; background-color: var(--primary-color); color: #fff;
-  padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-.verify-button:hover {
-  background-color: var(--dark-blue); color: var(--white-color);
-}
-@media (max-width: 600px) {
-  .certifications-grid { grid-template-columns: 1fr; }
-  .cert-image img { max-height: 150px; }
-}
-
+/* —————————————————————
+   Certifications Section
+   ————————————————————— */
+   .certifications-section {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 123, 255, 0.05);
+    padding: 10rem 4rem;
+    text-align: center;
+  }
+  .certifications-section h2 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--white-color);
+  }
+  
+  /* tiny‐particle canvas behind cards */
+  .cert-particles {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* grid of cards (above particles) */
+  .certifications-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* base card styling (front face) */
+  .cert-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    perspective: 1000px;           /* enable 3D space */
+  }
+  
+  /* hide the original verify link on the front */
+  .cert-card .verify-button {
+    display: none;
+  }
+  
+  /* flip‑card inner wrapper */
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    z-index: 1;
+  }
+  
+  /* flip on hover (desktop) or tap (mobile) */
+  .cert-card:hover .flip-inner,
+  .cert-card:focus-within .flip-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* front & back faces */
+  .flip-front,
+  .flip-back {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* front face retains your original look */
+  .flip-front {
+    background: rgba(255,255,255,0.95);
+  }
+  
+  /* back face */
+  .flip-back {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    text-align: center;
+    color: var(--white-color);
+  }
+  
+  /* badge image */
+  .cert-image img,
+  .flip-front .cert-image img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+  }
+  
+  /* front info */
+  .cert-info,
+  .flip-front .cert-info {
+    margin-top: 1rem;
+  }
+  .flip-front .cert-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-blue);
+  }
+  .flip-front .cert-dates {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+  }
+  
+  /* back‑side heading */
+  .flip-back h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--white-color);
+  }
+  
+  /* back‑side description */
+  .flip-back p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+  
+  /* button container on back */
+  .flip-back .btns {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  
+  /* buttons */
+  .btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn.primary {
+    background: var(--white-color);
+    color: var(--dark-text);
+  }
+  .btn.primary:hover {
+    background: var(--dark-blue);
+  }
+  .btn.secondary {
+    background: #fff;
+    color: var(--dark-text);
+    border: 1px solid var(--gray-text);
+  }
+  .btn.secondary:hover {
+    background: var(--gray-text);
+    color: #fff;
+  }
+  
+  /* responsive */
+  @media (max-width: 600px) {
+    .certifications-grid {
+      grid-template-columns: 1fr;
+    }
+    .cert-image img {
+      max-height: 150px;
+    }
+  }
+  
+  
 /* School Projects Section */
 .projects-section {
   background: rgba(0, 123, 255, 0.05);  padding: 10rem 1rem; text-align: center;

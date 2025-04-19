@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 2) Initialize AOS (Animate on Scroll)
+  // 2) Initialize AOS
   if (typeof AOS !== "undefined" && !prefersReducedMotion()) {
     AOS.init({ duration: 800, once: false });
   } else {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Typed("#typed-text", {
       strings: [
         "A student innovator with passion for tech.",
-        "I'm a Computer Engineering student who's interested in Cloud Engineering and DevOps",
+        "I'm a Computer Engineering student interested in Cloud & DevOps.",
         "Let's connect – just say hello."
       ],
       typeSpeed: 90,
@@ -28,11 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.warn("Typed.js failed to load.");
     const el = document.getElementById("typed-text");
-    if (el) el.textContent = "I'm a Computer Engineering Student.";
+    if (el) el.textContent = "I'm a Computer Engineering student.";
   }
 
-  // 4) tsParticles interactive background
+  // 4) tsParticles interactive backgrounds
   if (window.tsParticles && !prefersReducedMotion()) {
+    // Hero
     tsParticles.load("particles-js", {
       particles: {
         number: { value: window.innerWidth > 768 ? 80 : 40, density: { enable: true, value_area: 800 } },
@@ -49,26 +50,52 @@ document.addEventListener("DOMContentLoaded", () => {
           onHover: { enable: window.innerWidth > 768, mode: "grab" },
           onClick: { enable: window.innerWidth > 768, mode: "push" }
         },
-        modes: {
-          grab: { distance: 140, links: { opacity: 1 } },
-          push: { quantity: 4 }
-        }
+        modes: { grab: { distance: 140, links: { opacity: 1 } }, push: { quantity: 4 } }
       },
+      detectRetina: true
+    });
+
+    // Certifications Section
+    tsParticles.load("certparticles", {
+      particles: {
+        number: { value: 30, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true },
+        size: { value: 4, random: true },
+        move: { enable: true, speed: 0.8, outModes: "out" }
+      },
+      interactivity: { detectsOn: "canvas", events: { onHover: { enable: false }, onClick: { enable: false } } },
+      detectRetina: true
+    });
+
+    // Experience Section
+    tsParticles.load("expparticles", {
+      particles: {
+        number: { value: 20, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 0.5, outModes: "out" }
+      },
+      interactivity: { detectsOn: "canvas", events: { onHover: { enable: false }, onClick: { enable: false } } },
       detectRetina: true
     });
   } else {
     console.warn("tsParticles failed to load or reduced motion is enabled.");
   }
 
-  // 5) VanillaTilt for any timeline cards
+  // 5) VanillaTilt
   if (window.VanillaTilt) {
-    const tiltElems = document.querySelectorAll(".timeline-content[data-tilt]");
+    const tiltElems = document.querySelectorAll("[data-tilt]");
     if (tiltElems.length) {
       VanillaTilt.init(tiltElems, {
-        max: 8,
+        max: 15,
         speed: 400,
-        scale: 1.02,
-        glare: false
+        glare: true,
+        "max-glare": 0.2,
+        scale: 1.02
       });
     }
   } else {
@@ -84,42 +111,37 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
-  // 7) Navbar show/hide via IntersectionObserver
+  // 7) Navbar show/hide
   const nav = document.querySelector(".navbar");
   const heroSection = document.getElementById("home");
   const aboutSection = document.getElementById("about-me");
   const projectsSection = document.getElementById("projects");
-
   if (nav && heroSection && aboutSection && projectsSection) {
     new IntersectionObserver(
       entries => entries.forEach(e => e.isIntersecting && nav.classList.remove("visible")),
       { threshold: 0 }
     ).observe(heroSection);
-
     new IntersectionObserver(
       entries => entries.forEach(e => e.isIntersecting && nav.classList.add("visible")),
       { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
     ).observe(aboutSection);
-
     new IntersectionObserver(
       entries => entries.forEach(e => !e.isIntersecting && nav.classList.remove("visible")),
       { threshold: 0, rootMargin: "0px 0px -100% 0px" }
     ).observe(projectsSection);
-  } else {
-    console.warn("Navbar or key sections missing.");
   }
 
-  // 8) Calculate durations for .calc-duration spans
+  // 8) Calculate durations
   function calculateDuration(startDate, endDate) {
     const start = new Date(startDate);
-    const end = endDate === "Present" ? new Date() : new Date(endDate);
+    const end   = endDate === "Present" ? new Date() : new Date(endDate);
     let months = (end.getFullYear() - start.getFullYear()) * 12 +
                  (end.getMonth() - start.getMonth());
     const years = Math.floor(months / 12);
     months %= 12;
     let result = "";
-    if (years)  result += `${years} yr${years > 1 ? "s" : ""}`;
-    if (months) result += `${years ? " " : ""}${months} mo${months > 1 ? "s" : ""}`;
+    if (years)  result += `${years} yr${years>1?"s":""}`;
+    if (months) result += `${years?" ":""}${months} mo${months>1?"s":""}`;
     return result || "Less than 1 mo";
   }
   document.querySelectorAll(".calc-duration").forEach(span => {
@@ -131,8 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 9) Refresh AOS on resize
   window.addEventListener("resize", debounce(() => {
-    if (typeof AOS !== "undefined" && !prefersReducedMotion()) {
-      AOS.refresh();
-    }
+    if (typeof AOS !== "undefined" && !prefersReducedMotion()) AOS.refresh();
   }, 200));
 });

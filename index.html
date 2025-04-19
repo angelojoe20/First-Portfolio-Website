@@ -139,7 +139,7 @@
                 data-aos="fade-up"
                 data-aos-delay="200">
                 Hello! I’m Angelo Joe Delos Santos — a 
-                <span class="highlight">Computer Engineering student</span> 
+                <span class="highlight">Computer Engineering student at Pamatansan ng Lungsod ng Maynila</span> 
                 who loves turning challenges into creative solutions. I believe in continuous learning and innovation, always striving to make a meaningful impact.
               </p>
               <a href="https://www.facebook.com/eyydyyeyyy"
@@ -210,13 +210,15 @@
             </section>
 
 <!-- Experience Section -->
-<section class="experience-section" id="experience">
+<section class="experience-section" id="experience" data-aos="fade-up">
+  <!-- tiny‐particle canvas behind this section -->
+  <div id="expparticles" class="exp-particles"></div>
+
   <h2 class="section-title" data-aos="fade-down" data-aos-delay="100">
     Work Experience
   </h2>
 
   <div class="timeline">
-
     <!-- Inspiro (left) -->
     <div class="timeline-entry">
       <div class="timeline-marker">
@@ -272,10 +274,10 @@
       </article>
     </div>
 
-    <!-- PESO Manila (left) -->
+    <!-- PESO - Manila (left) -->
     <div class="timeline-entry">
       <div class="timeline-marker">
-        <img src="images/peso.png" alt="Public Employment Service Office of Manila logo">
+        <img src="images/peso.png" alt="PESO - Manila logo">
       </div>
       <article
         class="timeline-content"
@@ -285,7 +287,7 @@
         data-tilt-scale="1.02"
       >
         <header class="exp-header">
-          <h3>PESO - Manila</h3>
+          <h3>PESO – Manila</h3>
           <span class="dates">June 2023 – August 2023</span>
         </header>
         <div class="exp-body">
@@ -316,7 +318,7 @@
           <span class="dates">November 2024 – February 2025</span>
         </header>
         <div class="exp-body">
-          <p>Focused on ERP & Odoo infrastructure, optimized performance, and collaborated on Google Cloud solutions.</p>
+          <p>Focused on ERP &amp; Odoo infrastructure, optimized performance, and collaborated on Google Cloud solutions.</p>
           <div class="skills">
             <span class="skill">Google Cloud</span>
             <span class="skill">Odoo</span>
@@ -355,51 +357,103 @@
   </div>
 </section>
 
-      <!-- Certifications Section -->
-      <section id="certifications" class="certifications-section" data-aos="fade-up">
-        <h2>Certifications</h2>
-        <div class="certifications-grid">
-          <article class="cert-card">
-            <div class="cert-image">
-              <a href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank" aria-label="AWS Certified Cloud Practitioner Badge">
-                <img src="images/AWS CCP1.png" alt="AWS Certified Cloud Practitioner Badge" class="achievement-icon" loading="lazy">
-              </a>
-            </div>
-            <div class="cert-info">
-              <h3>AWS Certified Cloud Practitioner (CLF-CO2)</h3>
-              <p class="cert-dates">
-                Passed: January 25, 2025<br>
-                Expires: January 25, 2028
-              </p>
-              <a class="verify-button" href="https://www.credly.com/badges/ac3f5eed-59d9-4894-b1e6-4c27ba816446/public_url" target="_blank">Verify Certificate</a>
-            </div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-image">
-              <a href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank" aria-label="AI Fundamentals Certificate Badge">
-                <img src="images/AIF0027125905030.png" alt="AI Fundamentals Certificate Badge" class="achievement-icon" loading="lazy">
-              </a>
-            </div>
-            <div class="cert-info">
-              <h3>AI Fundamentals Certificate</h3>
-              <p class="cert-dates">Passed: November 2024</p>
-              <a class="verify-button" href="https://www.datacamp.com/skill-verification/AIF0027125905030" target="_blank">Verify Certificate</a>
-            </div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-image">
-              <a href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank" aria-label="Data Literacy Certificate Badge">
-                <img src="images/DL0033130428625.png" alt="Data Literacy Certificate Badge" class="achievement-icon" loading="lazy">
-              </a>
-            </div>
-            <div class="cert-info">
-              <h3>Data Literacy Certificate</h3>
-              <p class="cert-dates">Passed: September 2024</p>
-              <a class="verify-button" href="https://www.datacamp.com/skill-verification/DL0033130428625" target="_blank">Verify Certificate</a>
-            </div>
-          </article>
+<!-- Certifications Section -->
+<section id="certifications" class="certifications-section" data-aos="fade-up">
+  <!-- tiny particle background -->
+  <div id="certparticles" class="cert-particles"></div>
+
+  <h2>Certifications</h2>
+  <div class="certifications-grid">
+
+    <!-- AWS CCP -->
+    <article class="cert-card flip-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="flip-inner">
+        <!-- Front -->
+        <div class="flip-front">
+          <div class="cert-image">
+            <img src="images/AWS CCP1.png"
+                 alt="AWS Certified Cloud Practitioner Badge"
+                 class="achievement-icon"
+                 loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3>AWS Cloud Practitioner</h3>
+            <p class="cert-dates">
+              Passed: Jan 2025<br>
+              Expires: Jan 2028
+            </p>
+          </div>
         </div>
-      </section>
+        <!-- Back -->
+        <div class="flip-back">
+          <h3>What I Learned</h3>
+          <p>Gained hands‑on experience with IAM, EC2, S3, VPC and AWS best practices.</p>
+          <div class="btns">
+            <a href="https://www.credly.com/badges/ac3f5eed-59d9-4894-bc27ba816446/public_url"
+               class="btn primary" target="_blank">Verify</a>
+            <a href="images/AWS CCP1.png" class="btn secondary" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- AI Fundamentals -->
+    <article class="cert-card flip-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="cert-image">
+            <img src="images/AIF0027125905030.png"
+                 alt="AI Fundamentals Certificate Badge"
+                 class="achievement-icon"
+                 loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3>AI Fundamentals</h3>
+            <p class="cert-dates">Passed: Nov 2024</p>
+          </div>
+        </div>
+        <div class="flip-back">
+          <h3>What I Learned</h3>
+          <p>Mastered core ML concepts, supervised vs unsupervised learning, and Python implementations.</p>
+          <div class="btns">
+            <a href="https://www.datacamp.com/skill-verification/AIF0027125905030"
+               class="btn primary" target="_blank">Verify</a>
+            <a href="images/AIF0027125905030.png" class="btn secondary" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Data Literacy -->
+    <article class="cert-card flip-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="cert-image">
+            <img src="images/DL0033130428625.png"
+                 alt="Data Literacy Certificate Badge"
+                 class="achievement-icon"
+                 loading="lazy">
+          </div>
+          <div class="cert-info">
+            <h3>Data Literacy</h3>
+            <p class="cert-dates">Passed: Sep 2024</p>
+          </div>
+        </div>
+        <div class="flip-back">
+          <h3>What I Learned</h3>
+          <p>Acquired skills in data interpretation, visualization, and analysis with Python and pandas.</p>
+          <div class="btns">
+            <a href="https://www.datacamp.com/skill-verification/DL0033130428625"
+               class="btn primary" target="_blank">Verify</a>
+            <a href="images/DL0033130428625.png" class="btn secondary" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
       
       <!-- School Projects Section -->
       <section id="projects" class="projects-section" data-aos="fade-up">
