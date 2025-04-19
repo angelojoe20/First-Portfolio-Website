@@ -60,15 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("tsParticles failed to load or reduced motion is enabled.");
   }
 
-  // 5) VanillaTilt for any [data-tilt]
+  // 5) VanillaTilt for any timeline cards
   if (window.VanillaTilt) {
-    const tiltElems = document.querySelectorAll("[data-tilt]");
+    const tiltElems = document.querySelectorAll(".timeline-content[data-tilt]");
     if (tiltElems.length) {
       VanillaTilt.init(tiltElems, {
-        max: 15,
+        max: 8,
         speed: 400,
-        glare: true,
-        "max-glare": 0.2
+        scale: 1.02,
+        glare: false
       });
     }
   } else {
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 8) Calculate durations for .calc-duration spans
   function calculateDuration(startDate, endDate) {
     const start = new Date(startDate);
-    const end   = endDate === "Present" ? new Date() : new Date(endDate);
+    const end = endDate === "Present" ? new Date() : new Date(endDate);
     let months = (end.getFullYear() - start.getFullYear()) * 12 +
                  (end.getMonth() - start.getMonth());
     const years = Math.floor(months / 12);
@@ -131,6 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 9) Refresh AOS on resize
   window.addEventListener("resize", debounce(() => {
-    if (typeof AOS !== "undefined" && !prefersReducedMotion()) AOS.refresh();
+    if (typeof AOS !== "undefined" && !prefersReducedMotion()) {
+      AOS.refresh();
+    }
   }, 200));
 });
