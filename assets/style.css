@@ -315,6 +315,7 @@ body {
 }
 .highlight {
   color: var(--accent-color);
+  color: var(--dark-text);
   font-weight: 600;
 }
 .about-me-description {
