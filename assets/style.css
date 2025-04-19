@@ -609,7 +609,7 @@ body {
   
 /* Certifications Section */
 .certifications-section {
-  background: rgba(0, 123, 255, 0.05); ; padding: 4rem 1rem; text-align: center;
+  background: rgba(0, 123, 255, 0.05); ; padding: 10rem 4rem; text-align: center;
 }
 .certifications-section h2 {
   margin-bottom: 3rem; font-size: 2rem; color: var(--white-color);
@@ -648,7 +648,7 @@ body {
 
 /* School Projects Section */
 .projects-section {
-  background: rgba(0, 123, 255, 0.05);  padding: 3rem 1rem; text-align: center;
+  background: rgba(0, 123, 255, 0.05);  padding: 10rem 1rem; text-align: center;
 }
 .projects-section h2 {
   margin-bottom: 3rem; font-size: 2rem; color: var(--white-color);
