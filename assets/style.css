@@ -965,12 +965,13 @@ body {
   margin: 0 auto;
 }
 
-/* Organization card */
+/* Updated Organization card styles */
 .leadership-card {
   background: transparent;
   position: relative;
   perspective: 1500px;
-  height: 450px;
+  height: auto; /* Changed from fixed 450px to auto */
+  min-height: 480px; /* Added minimum height */
 }
 
 /* Card inner container for potential 3D effects */
@@ -983,58 +984,35 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.leadership-card:hover .org-card-inner {
-  transform: translateY(-15px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Card header with logo */
 .org-header {
-  height: 140px;
+  height: 120px; /* Reduced from 140px */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
   transition: height 0.3s ease;
-}
-
-.org-logo {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-.leadership-card:hover .org-logo {
-  transform: scale(1.1);
-}
-
-.org-logo img {
-  max-width: 80%;
-  max-height: 80%;
-  object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* Card content */
 .org-content {
   padding: 1.75rem;
   color: var(--dark-text);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .org-content h3 {
   color: var(--primary-color);
   font-size: 1.3rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem; /* Reduced from 0.75rem */
   line-height: 1.4;
 }
 
@@ -1046,20 +1024,20 @@ body {
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem; /* Reduced from 0.75rem */
 }
 
 .dates {
   font-size: 0.9rem;
   color: var(--gray-text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
   display: block;
 }
 
 .description {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem; /* Reduced from 1.25rem */
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.5; /* Slightly tighter */
   color: var(--gray-text);
 }
 
@@ -1068,24 +1046,35 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto; /* Push to bottom */
+  padding-top: 0.75rem; /* Space from description */
 }
 
-.skill-tag {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--gray-text);
-  border-radius: 20px;
-  font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .leadership-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .leadership-card {
+    min-height: 450px;
+  }
+  
+  .org-content {
+    padding: 1.5rem;
+  }
 }
 
-.leadership-card:hover .skill-tag {
-  background: rgba(0, 123, 255, 0.1);
-  color: var(--primary-color);
+@media (max-width: 480px) {
+  .org-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .leadership-section {
@@ -1117,3 +1106,4 @@ body {
 .footer-socials .btn-social:hover {
   background-color: var(--primary-color); color: #fff;
 }
+
