@@ -82,6 +82,35 @@ document.addEventListener("DOMContentLoaded", () => {
       interactivity: { detectsOn: "canvas", events: { onHover: { enable: false }, onClick: { enable: false } } },
       detectRetina: true
     });
+    
+    // Leadership Section
+    tsParticles.load("leadershipparticles", {
+      particles: {
+        number: { value: 15, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.25, random: true },
+        size: { value: 2, random: true },
+        move: { enable: true, speed: 0.6, direction: "none", outModes: "out" }
+      },
+      interactivity: { 
+        detectsOn: "canvas", 
+        events: { 
+          onHover: { enable: true, mode: "connect" }, 
+          onClick: { enable: false } 
+        },
+        modes: {
+          connect: {
+            distance: 150,
+            links: {
+              opacity: 0.3
+            },
+            radius: 120
+          }
+        }
+      },
+      detectRetina: true
+    });
   } else {
     console.warn("tsParticles failed to load or reduced motion is enabled.");
   }
