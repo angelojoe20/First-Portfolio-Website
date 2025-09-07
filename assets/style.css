@@ -990,15 +990,57 @@ body {
 
 /* Card header with logo */
 .org-header {
-  height: 120px; /* Reduced from 140px */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  height: 120px; 
   position: relative;
+  overflow: hidden;
   transition: height 0.3s ease;
   flex-shrink: 0;
 }
+
+/* Add subtle wave pattern to headers */
+.org-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: white;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Organization logo styling */
+.org-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 15px;
+  border: 4px solid white;
+  overflow: hidden;
+}
+
+.org-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.leadership-card:hover .org-logo {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 
 /* Card content */
 .org-content {
@@ -1106,5 +1148,6 @@ body {
 .footer-socials .btn-social:hover {
   background-color: var(--primary-color); color: #fff;
 }
+
 
 
